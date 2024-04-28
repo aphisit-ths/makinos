@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+  makino-dev:  # More descriptive service name
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+      args:
+        APP_ENV: Local
+    entrypoint:
+      - ./start-dev.sh
+      - daily  # Assuming these are flags for the script
+      - friend-get-friend
+    environment:
+      - ACTIVE_PROFILE=Development
